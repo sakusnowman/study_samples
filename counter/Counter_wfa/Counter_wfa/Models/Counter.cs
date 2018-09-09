@@ -9,6 +9,7 @@ namespace Counter_wfa.Models
     public class Counter
     {
         public string Name { get; }
+        public int Count { get; set; }
         public Counter(string name)
         {
             Name = name;

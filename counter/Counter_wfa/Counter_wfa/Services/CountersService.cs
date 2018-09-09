@@ -31,9 +31,10 @@ namespace Counter_wfa.Services
             return repository.GetCounters();
         }
 
-        public Task IncrementCount(Counter counter)
+        public async Task IncrementCount(Counter counter)
         {
-            throw new NotImplementedException();
+            counter.Count++;
+            await repository.SaveOrReplace(counter);
         }
     }
 }

@@ -62,5 +62,18 @@ namespace Counter_wfa.Tests.Services
             repository.Verify(r => r.GetCounters());
             Assert.AreEqual(counters, result);
         }
+
+        [Test]
+        public async Task IncrementCounter_AAA_AAAsCountAdded1()
+        {
+            // Arrange
+            var counter = new Counter("AAA");
+            var initialCount = counter.Count;
+            // Act
+            await service.IncrementCount(counter);
+            // Asseert
+            Assert.IsTrue(initialCount < counter.Count);
+            repository.Verify(r => r.SaveOrReplace(counter));
+        }
     }
 }
