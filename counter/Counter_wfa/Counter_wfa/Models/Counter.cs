@@ -8,5 +8,10 @@ namespace Counter_wfa.Models
 {
     public class Counter
     {
+        public string Name { get; }
+        public Counter(string name)
+        {
+            Name = name;
+        }
     }
 }

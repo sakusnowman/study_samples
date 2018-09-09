@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,8 +24,20 @@ namespace Counter_wfa.Contollers
         public async Task AddNewCounter(string counterName)
         {
             if (await counterService.AddNewCounter(counterName) == false) return;
-            var message = new CountersChangedMessage(await counterService.GetAllCounters());
-            messenger.PostMessage(message);
+            messenger.PostMessage(await CreateCountersChangedMessage());
+        }
+
+        public async Task IncrementCounter(string counterName)
+        {
+            var counter = (await counterService.GetAllCounters()).FirstOrDefault(c => c.Name.Equals(counterName));
+            if (counter == null) return;
+            await counterService.IncrementCount(counter);
+            messenger.PostMessage(await CreateCountersChangedMessage());
+        }
+
+        private async Task<CountersChangedMessage> CreateCountersChangedMessage()
+        {
+            return new CountersChangedMessage(await counterService.GetAllCounters());
         }
     }
 }

@@ -8,6 +8,7 @@ using Counter_wfa.Contollers;
 using Counter_wfa.Services;
 using MessengerHelper.Messengers;
 using Counter_wfa.Messages;
+using Counter_wfa.Models;
 
 namespace Counter_wfa.Tests.Controller
 {
@@ -51,6 +52,32 @@ namespace Counter_wfa.Tests.Controller
             service.Verify(s => s.AddNewCounter(counterName));
             service.Verify(s => s.GetAllCounters(), Times.Never);
             messenger.Verify(m => m.PostMessage(It.IsAny<object>()), Times.Never);
+        }
+
+        [Test]
+        public async Task IncrementCounter_AAA_AAAIsAlreadyRegistered_IncrementAAACounter()
+        {
+            // Arrange
+            service.Setup(s => s.GetAllCounters()).ReturnsAsync(new List<Counter>() { new Counter("AAA") });
+            // Act
+            await controller.IncrementCounter("AAA");
+            // Assert
+            service.Verify(s => s.IncrementCount(It.Is<Counter>(c => c.Name.Equals("AAA"))));
+            service.Verify(s => s.GetAllCounters());
+            messenger.Verify(m => m.PostMessage(It.IsAny<CountersChangedMessage>()));
+        }
+
+        [Test]
+        public async Task IncrementCounter_NotRegisteredCounter_CannotIncrement()
+        {
+            // Arrange
+            service.Setup(s => s.GetAllCounters()).ReturnsAsync(new List<Counter>() { new Counter("AAA") });
+            // Act
+            await controller.IncrementCounter("BBB");
+            // Assert
+            service.Verify(s => s.GetAllCounters());
+            service.Verify(s => s.IncrementCount(It.IsAny<Counter>()), Times.Never);
+            messenger.Verify(m => m.PostMessage(It.IsAny<CountersChangedMessage>()), Times.Never);
         }
     }
 }

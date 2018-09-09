@@ -11,5 +11,6 @@ namespace Counter_wfa.Services
     {
         Task<bool> AddNewCounter(string counterName);
         Task<IEnumerable<Counter>> GetAllCounters();
+        Task IncrementCount(Counter counter);
     }
 }
