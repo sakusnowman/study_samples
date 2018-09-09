@@ -4,3 +4,6 @@
 [submodule "messenger_helper"]
 	path = messenger_helper
 	url = https://github.com/sakusnowman/messenger_helper.git
+[submodule "saku_library"]
+	path = saku_library
+	url = https://github.com/sakusnowman/saku_library.git
