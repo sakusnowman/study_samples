@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Counter_wfa
+namespace Counter_wfa.Views
 {
-    public partial class Form1 : Form
+    public partial class CountersView : Form
     {
-        public Form1()
+        public CountersView()
         {
             InitializeComponent();
         }

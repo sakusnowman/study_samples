@@ -1,6 +1,6 @@
-﻿namespace Counter_wfa
+﻿namespace Counter_wfa.Views
 {
-    partial class Form1
+    partial class CountersView
     {
         /// <summary>
         /// 必要なデザイナー変数です。
