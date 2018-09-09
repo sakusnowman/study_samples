@@ -44,5 +44,23 @@ namespace Counter_wfa.Tests.Services
             repository.Verify(r => r.GetCounters());
             Assert.IsFalse(result);
         }
+
+        [Test]
+        public async Task GetAllCounters_GetFromRepository()
+        {
+            // Arrange
+            var counters = new List<Counter>()
+            {
+                new Counter("AAA"),
+                new Counter("BBB"),
+                new Counter("CCC")
+            };
+            repository.Setup(r => r.GetCounters()).ReturnsAsync(counters);
+            //Act
+            var result =await service.GetAllCounters();
+            // Assert
+            repository.Verify(r => r.GetCounters());
+            Assert.AreEqual(counters, result);
+        }
     }
 }
