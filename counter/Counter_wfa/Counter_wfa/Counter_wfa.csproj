@@ -50,6 +50,8 @@
     <Compile Include="Models\Counter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ICountersRepository.cs" />
+    <Compile Include="Services\CountersService.cs" />
     <Compile Include="Services\ICountersService.cs" />
     <Compile Include="Views\CountersView.cs">
       <SubType>Form</SubType>

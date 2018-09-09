@@ -42,7 +42,7 @@ namespace Counter_wfa.Tests.Controller
 
         [TestCase("")]
         [TestCase("Already")]
-        public async Task AddNewCounter_NameIsAlreadyCreated_CannotCreateCounter(string counterName)
+        public async Task AddNewCounter_FailedToAddCounter_CannotCreateCounter(string counterName)
         {
             // Arrange
             service.Setup(s => s.AddNewCounter(counterName)).ReturnsAsync(false);
