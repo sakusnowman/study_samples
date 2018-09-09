@@ -1,4 +1,8 @@
-﻿using Counter_wfa.Views;
+﻿using Counter_wfa.Configuration;
+using Counter_wfa.Contollers;
+using Counter_wfa.Views;
+using IocLabo;
+using MessengerHelper.Messengers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +21,9 @@ namespace Counter_wfa
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CountersView());
+
+            new SetUp().SetUP();
+            Application.Run(new CountersView(Labo.Resolve<IMessenger>(), Labo.ConstructByLongestArgs<CountersViewController>()));
         }
     }
 }

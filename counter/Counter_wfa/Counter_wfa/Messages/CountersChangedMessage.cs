@@ -9,6 +9,15 @@ namespace Counter_wfa.Messages
 {
     public class CountersChangedMessage
     {
-        public CountersChangedMessage(IEnumerable<Counter> counters) { }
+        readonly IEnumerable<Counter> counters;
+        public CountersChangedMessage(IEnumerable<Counter> counters)
+        {
+            this.counters = counters;
+        }
+
+        public IEnumerable<string> CountersToString()
+        {
+            return counters.Select(c => c.Count + "\t" + c.Name);
+        }
     }
 }

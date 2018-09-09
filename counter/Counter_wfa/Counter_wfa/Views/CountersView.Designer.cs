@@ -32,7 +32,6 @@
             this._addNewCounterButton = new System.Windows.Forms.Button();
             this._newCounterNameTextBox = new System.Windows.Forms.TextBox();
             this._incrementButton = new System.Windows.Forms.Button();
-            this._decrementButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // _countersListBox
@@ -52,6 +51,7 @@
             this._addNewCounterButton.TabIndex = 1;
             this._addNewCounterButton.Text = "button1";
             this._addNewCounterButton.UseVisualStyleBackColor = true;
+            this._addNewCounterButton.Click += new System.EventHandler(this._addNewCounterButton_Click);
             // 
             // _newCounterNameTextBox
             // 
@@ -68,22 +68,13 @@
             this._incrementButton.TabIndex = 3;
             this._incrementButton.Text = "+";
             this._incrementButton.UseVisualStyleBackColor = true;
-            // 
-            // _decrementButton
-            // 
-            this._decrementButton.Location = new System.Drawing.Point(330, 12);
-            this._decrementButton.Name = "_decrementButton";
-            this._decrementButton.Size = new System.Drawing.Size(22, 23);
-            this._decrementButton.TabIndex = 4;
-            this._decrementButton.Text = "-";
-            this._decrementButton.UseVisualStyleBackColor = true;
+            this._incrementButton.Click += new System.EventHandler(this._incrementButton_Click);
             // 
             // CountersView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(503, 450);
-            this.Controls.Add(this._decrementButton);
             this.Controls.Add(this._incrementButton);
             this.Controls.Add(this._newCounterNameTextBox);
             this.Controls.Add(this._addNewCounterButton);
@@ -101,7 +92,6 @@
         private System.Windows.Forms.Button _addNewCounterButton;
         private System.Windows.Forms.TextBox _newCounterNameTextBox;
         private System.Windows.Forms.Button _incrementButton;
-        private System.Windows.Forms.Button _decrementButton;
     }
 }
 

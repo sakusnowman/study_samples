@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\SetUp.cs" />
     <Compile Include="Controller\CountersViewController.cs" />
     <Compile Include="Messages\CountersChangedMessage.cs" />
     <Compile Include="Models\Counter.cs" />
@@ -86,6 +87,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\ioc_container\IocLabo\IocLabo\IocLabo.csproj">
+      <Project>{78895236-8547-4145-AC08-4B518B05AE17}</Project>
+      <Name>IocLabo</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\messenger_helper\MessengerHelper\MessengerHelper\MessengerHelper.csproj">
       <Project>{315B5C23-E61C-464B-BC7F-6618C401DE41}</Project>
       <Name>MessengerHelper</Name>
