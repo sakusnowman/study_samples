@@ -45,8 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\CountersViewController.cs" />
+    <Compile Include="Messages\CountersChangedMessage.cs" />
+    <Compile Include="Models\Counter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ICountersService.cs" />
     <Compile Include="Views\CountersView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +81,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\messenger_helper\MessengerHelper\MessengerHelper\MessengerHelper.csproj">
+      <Project>{315B5C23-E61C-464B-BC7F-6618C401DE41}</Project>
+      <Name>MessengerHelper</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
