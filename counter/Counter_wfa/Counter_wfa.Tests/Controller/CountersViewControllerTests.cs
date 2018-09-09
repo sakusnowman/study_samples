@@ -39,15 +39,16 @@ namespace Counter_wfa.Tests.Controller
             messenger.Verify(m => m.PostMessage(It.IsAny<CountersChangedMessage>()));
         }
 
-        [Test]
-        public async Task AddNewCounter_NameIsAlreadyCreated_CannotCreateCounter()
+        [TestCase("")]
+        [TestCase("Already")]
+        public async Task AddNewCounter_NameIsAlreadyCreated_CannotCreateCounter(string counterName)
         {
             // Arrange
-            service.Setup(s => s.AddNewCounter("Already")).ReturnsAsync(false);
+            service.Setup(s => s.AddNewCounter(counterName)).ReturnsAsync(false);
             // Act
-            await controller.AddNewCounter("Already");
+            await controller.AddNewCounter(counterName);
             // Assert
-            service.Verify(s => s.AddNewCounter("Already"));
+            service.Verify(s => s.AddNewCounter(counterName));
             service.Verify(s => s.GetAllCounters(), Times.Never);
             messenger.Verify(m => m.PostMessage(It.IsAny<object>()), Times.Never);
         }
