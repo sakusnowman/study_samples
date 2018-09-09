@@ -1,0 +1,6 @@
+[submodule "ioc_container"]
+	path = ioc_container
+	url = https://github.com/sakusnowman/ioc_container.git
+[submodule "messenger_helper"]
+	path = messenger_helper
+	url = https://github.com/sakusnowman/messenger_helper.git
