@@ -41,8 +41,13 @@ namespace Counter_wfa.Views
 
         private void ChangedCounters(CountersChangedMessage message)
         {
+            var selectedIndex = _countersListBox.SelectedIndex;
+
             _countersListBox.Items.Clear();
             message.CountersToString().ToList().ForEach(c => _countersListBox.Items.Add(c));
+
+            if (selectedIndex < 0) return;
+            _countersListBox.SetSelected(selectedIndex, true);
         }
     }
 }
