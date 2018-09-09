@@ -50,6 +50,7 @@
     <Compile Include="Models\Counter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CountersTemporarilyRepository.cs" />
     <Compile Include="Repositories\ICountersRepository.cs" />
     <Compile Include="Services\CountersService.cs" />
     <Compile Include="Services\ICountersService.cs" />
